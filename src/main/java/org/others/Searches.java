@@ -58,4 +58,23 @@ public class Searches {
         }
         return minIndex;
     }
+
+    public static int binarySearchOrInsertionPoint(int[] sorted, int t) {
+        if (sorted == null) return -1;
+
+        int lo = 0;
+        int hi = sorted.length - 1;
+
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (sorted[mid] == t) {
+                return mid;
+            } else if (sorted[mid] < t) {
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
+        }
+        return -(lo) - 1;
+    }
 }
