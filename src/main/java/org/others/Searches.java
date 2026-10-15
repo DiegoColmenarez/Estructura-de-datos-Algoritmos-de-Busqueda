@@ -1,7 +1,5 @@
 package org.others;
 
-import java.util.Arrays;
-
 public class Searches {
 
     public static int linearSearch(int[] a, int target) {
@@ -46,5 +44,18 @@ public class Searches {
         System.arraycopy(a, index + 1, result, index, a.length - index - 1);
 
         return result;
+    }
+
+    public static int argMin(int[] a) {
+        if (a == null || a.length == 0) {
+            return -1;
+        }
+        int minIndex = 0;
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] < a[minIndex]) {
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
 }
