@@ -1,5 +1,7 @@
 package org.others;
 
+import java.util.Arrays;
+
 public class Searches {
 
     public static int linearSearch(int[] a, int target) {
@@ -25,5 +27,24 @@ public class Searches {
             if (j == target) counter++;
         }
         return counter;
+    }
+
+    public static int[] removeFirstOccurrence(int[] a, int target) {
+        if (a == null) return null;
+        int index = -1;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == target) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1) {
+            return a;
+        }
+        int[] result = new int[a.length - 1];
+        System.arraycopy(a, 0, result, 0, index);
+        System.arraycopy(a, index + 1, result, index, a.length - index - 1);
+
+        return result;
     }
 }
