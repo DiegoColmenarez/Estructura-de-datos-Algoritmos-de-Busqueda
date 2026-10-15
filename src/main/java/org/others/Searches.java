@@ -147,4 +147,50 @@ public class Searches {
         }
         return results;
     }
+
+    public static int[][] searchFirstAndLast2D(int[][] m, int target) {
+        if (m == null || m.length == 0 || m[0] == null || m[0].length == 0) {
+            return new int[][] {{-1, -1}, {-1, -1}}; // Retorna formato { {r1, c1}, {r2, c2} }
+        }
+        int n = m.length;
+        int p = m[0].length;
+        int totalElements = n * p;
+        int lo = 0, hi = totalElements - 1;
+        int first1D = -1;
+        while (lo <= hi) {
+            int mid = lo + ((hi - lo) >>> 1);
+            int val = m[mid / p][mid % p]; // Mapeo 1D -> 2D
+
+            if (val == target) {
+                first1D = mid; // Guardamos el candidato
+                hi = mid - 1;  // Pero seguimos buscando hacia la IZQUIERDA
+            } else if (val < target) {
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
+        }
+        if (first1D == -1) {
+            return new int[][] {{-1, -1}, {-1, -1}};
+        }
+        lo = 0;
+        hi = totalElements - 1;
+        int last1D = -1;
+        while (lo <= hi) {
+            int mid = lo + ((hi - lo) >>> 1);
+            int val = m[mid / p][mid % p];
+            if (val == target) {
+                last1D = mid;
+                lo = mid + 1;
+            } else if (val < target) {
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
+        }
+        return new int[][] {
+                {first1D / p, first1D % p},
+                {last1D / p, last1D % p}
+        };
+    }
 }
