@@ -61,10 +61,8 @@ public class Searches {
 
     public static int binarySearchOrInsertionPoint(int[] sorted, int t) {
         if (sorted == null) return -1;
-
         int lo = 0;
         int hi = sorted.length - 1;
-
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
             if (sorted[mid] == t) {
@@ -76,5 +74,24 @@ public class Searches {
             }
         }
         return -(lo) - 1;
+    }
+
+    public static int lowerBound(int[] a, int target) {
+        int lo = 0, hi = a.length;
+        while (lo < hi) {
+            int mid = lo + ((hi - lo) >>> 1);
+            if (a[mid] < target) lo = mid + 1;
+            else hi = mid;
+        }
+        return lo;
+    }
+
+    public static int firstIndexOfSorted(int[] a, int target) {
+        if (a == null) return -1;
+        int lb = lowerBound(a, target);
+        if (lb < a.length && a[lb] == target) {
+            return lb;
+        }
+        return -1;
     }
 }
