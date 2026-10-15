@@ -18,5 +18,12 @@ public class Searches {
         return false;
     }
 
-
+    public static int count(int[] a, int target){
+        var counter = 0;
+        if (a == null) return counter;
+        for (int j : a) {
+            if (j == target) counter++;
+        }
+        return counter;
+    }
 }
