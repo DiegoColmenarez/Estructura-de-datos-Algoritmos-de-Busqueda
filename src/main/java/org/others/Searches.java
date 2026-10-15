@@ -1,5 +1,8 @@
 package org.others;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Searches {
 
     public static int linearSearch(int[] a, int target) {
@@ -115,5 +118,33 @@ public class Searches {
             }
         }
         return count;
+    }
+
+    public static List<int[]> staircaseSearchAll(int[][] m, int target) {
+        List<int[]> results = new ArrayList<>();
+        if (m == null || m.length == 0 || m[0] == null || m[0].length == 0) {
+            return results;
+        }
+        int n = m.length;
+        int p = m[0].length;
+        int i = 0;
+        int j = p - 1;
+        while (i < n && j >= 0) {
+            if (m[i][j] == target) {
+                int tempJ = j;
+                while (tempJ >= 0 && m[i][tempJ] == target) {
+                    results.add(new int[] {i, tempJ});
+                    tempJ--;
+                }
+                i++;
+            }
+            else if (m[i][j] > target) {
+                j--;
+            }
+            else {
+                i++;
+            }
+        }
+        return results;
     }
 }
