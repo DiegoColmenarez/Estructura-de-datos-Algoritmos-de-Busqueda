@@ -94,4 +94,12 @@ public class Searches {
         }
         return -1;
     }
+    public static int lastIndexOfSorted(int[] a, int target) {
+        if (a == null) return -1;
+        int ub = lowerBound(a, target + 1);
+        if (ub - 1 >= 0 && a[ub - 1] == target) {
+            return ub - 1;
+        }
+        return -1;
+    }
 }
