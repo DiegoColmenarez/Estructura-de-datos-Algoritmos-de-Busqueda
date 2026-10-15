@@ -102,4 +102,18 @@ public class Searches {
         }
         return -1;
     }
+    public static int linearSearch2D(int[][] m, int target) {
+        if (m == null) return 0;
+        int count = 0;
+        for (int[] ints : m) {
+            if (ints != null) {
+                for (int anInt : ints) {
+                    if (anInt == target) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
 }
