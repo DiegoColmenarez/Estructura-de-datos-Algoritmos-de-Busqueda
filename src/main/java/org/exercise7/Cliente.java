@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 public class Cliente {
 
-    ArrayList<Venta> ventas;
-    String nombre;
+    private final ClienteId id;
+    private final ArrayList<Venta> ventas;
+    private String nombre;
 
     public Cliente(String nombre, ArrayList<Venta> ventas){
         this.nombre = nombre;
         this.ventas = ventas;
+        this.id = ClienteId.crear();
     }
 }
