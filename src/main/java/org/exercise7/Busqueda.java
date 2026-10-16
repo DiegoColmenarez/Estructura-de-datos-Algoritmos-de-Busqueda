@@ -1,5 +1,6 @@
 package org.exercise7;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Busqueda {
@@ -39,5 +40,17 @@ public class Busqueda {
         return null;
     }
 
-
+    public static Venta[] buscarValorPrimeraUltima(ArrayList<Venta> ventas, BigDecimal valorBuscado) {
+        Venta primera = null;
+        Venta ultima = null;
+        for (Venta actual : ventas) {
+            if (actual.getValor().compareTo(valorBuscado) == 0) {
+                if (primera == null) {
+                    primera = actual;
+                }
+                ultima = actual;
+            }
+        }
+        return new Venta[]{primera, ultima};
+    }
 }
