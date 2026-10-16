@@ -32,7 +32,7 @@ public class Busqueda {
 
     public static ArrayList<Venta> buscarVentasCliente(ArrayList<Cliente> clientes, long idCliente) {
         for (Cliente cliente : clientes) {
-            if (cliente.getId().getId() == idCliente) {
+            if (cliente.getClienteId().getId() == idCliente) {
                 return cliente.getVentas();
             }
         }

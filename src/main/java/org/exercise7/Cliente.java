@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class Cliente {
 
-    private final ClienteId id;
+    private final ClienteId clienteId;
     private final ArrayList<Venta> ventas;
     private String nombre;
 
     public Cliente(String nombre, ArrayList<Venta> ventas){
         this.nombre = nombre;
         this.ventas = ventas;
-        this.id = ClienteId.crear();
+        this.clienteId = ClienteId.crear();
     }
 
-    public ClienteId getId() {
-        return id;
+    public ClienteId getClienteId() {
+        return clienteId;
     }
 
     public ArrayList<Venta> getVentas() {
