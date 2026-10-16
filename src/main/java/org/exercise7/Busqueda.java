@@ -29,4 +29,13 @@ public class Busqueda {
         }
         return null;
     }
+
+    public static ArrayList<Venta> buscarVentasCliente(ArrayList<Cliente> clientes, long idCliente) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getId().id == idCliente) {
+                return cliente.getVentas();
+            }
+        }
+        return null;
+    }
 }
