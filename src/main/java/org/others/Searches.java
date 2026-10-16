@@ -150,7 +150,7 @@ public class Searches {
 
     public static int[][] searchFirstAndLast2D(int[][] m, int target) {
         if (m == null || m.length == 0 || m[0] == null || m[0].length == 0) {
-            return new int[][] {{-1, -1}, {-1, -1}}; // Retorna formato { {r1, c1}, {r2, c2} }
+            return new int[][] {{-1, -1}, {-1, -1}};
         }
         int n = m.length;
         int p = m[0].length;
@@ -159,11 +159,10 @@ public class Searches {
         int first1D = -1;
         while (lo <= hi) {
             int mid = lo + ((hi - lo) >>> 1);
-            int val = m[mid / p][mid % p]; // Mapeo 1D -> 2D
-
+            int val = m[mid / p][mid % p];
             if (val == target) {
-                first1D = mid; // Guardamos el candidato
-                hi = mid - 1;  // Pero seguimos buscando hacia la IZQUIERDA
+                first1D = mid;
+                hi = mid - 1;
             } else if (val < target) {
                 lo = mid + 1;
             } else {
@@ -192,5 +191,17 @@ public class Searches {
                 {first1D / p, first1D % p},
                 {last1D / p, last1D % p}
         };
+    }
+
+    public static int binarySearchIter(int[] a, int target) {
+        if (a == null || a.length == 0) return -1;
+        int lo = 0, hi = a.length - 1;
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (a[mid] == target) return mid;
+            if (a[mid] < target) lo = mid + 1;
+            else hi = mid - 1;
+        }
+        return -1;
     }
 }
