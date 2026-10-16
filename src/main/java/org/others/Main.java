@@ -19,7 +19,7 @@ public class Main {
         int dummy = 0;
         for (int i = 0; i < 15_000; i++) {
             dummy += linearSearch(arr, -1);
-            dummy += binarySearchIter(arr, -1);
+            dummy += binarySearch(arr, -1);
         }
 
         int corridas = 10;
@@ -35,7 +35,7 @@ public class Main {
             totalLinearTime += (endLin - startLin);
 
             long startBin = System.nanoTime();
-            int res2 = binarySearchIter(arr, target);
+            int res2 = binarySearch(arr, target);
             long endBin = System.nanoTime();
             totalBinaryTime += (endBin - startBin);
             dummy += res1 + res2;
