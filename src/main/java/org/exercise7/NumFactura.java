@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class NumFactura {
 
-    long serial;
+    private final long serial;
 
     private NumFactura(Long serial){
         this.serial = serial;
@@ -18,5 +18,9 @@ public class NumFactura {
 
     public static NumFactura crear(){
         return new NumFactura(incrementarSerial());
+    }
+
+    public long getSerial() {
+        return serial;
     }
 }
