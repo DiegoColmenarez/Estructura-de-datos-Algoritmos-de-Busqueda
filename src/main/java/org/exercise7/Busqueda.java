@@ -9,7 +9,7 @@ public class Busqueda {
         for (int i = 1; i < ventas.size(); i++) {
             Venta actual = ventas.get(i);
             int j = i - 1;
-            while (j >= 0 && ventas.get(j).getNumFactura().serial > actual.getNumFactura().serial) {
+            while (j >= 0 && ventas.get(j).getNumFactura().getSerial() > actual.getNumFactura().getSerial()) {
                 ventas.set(j + 1, ventas.get(j));
                 j--;
             }
@@ -22,7 +22,7 @@ public class Busqueda {
         int fin = ventas.size() - 1;
         while (inicio <= fin) {
             int medio = (inicio + fin) / 2;
-            long s = ventas.get(medio).getNumFactura().serial;
+            long s = ventas.get(medio).getNumFactura().getSerial();
             if (s == serial) return ventas.get(medio);
             if (s < serial) inicio = medio + 1;
             else fin = medio - 1;
@@ -32,7 +32,7 @@ public class Busqueda {
 
     public static ArrayList<Venta> buscarVentasCliente(ArrayList<Cliente> clientes, long idCliente) {
         for (Cliente cliente : clientes) {
-            if (cliente.getId().id == idCliente) {
+            if (cliente.getClienteId().getId() == idCliente) {
                 return cliente.getVentas();
             }
         }
