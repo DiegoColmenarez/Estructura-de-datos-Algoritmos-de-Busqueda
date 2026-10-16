@@ -39,10 +39,10 @@ public class Main {
         imprimirVentas(ventasGlobales);
 
         System.out.println("\n---  Búsqueda de una factura específica ---");
-        long serialABuscar = v1.getNumFactura().serial;
+        long serialABuscar = v1.getNumFactura().getSerial();
         Venta ventaEncontrada = Busqueda.buscarVenta(ventasGlobales, serialABuscar);
         if (ventaEncontrada != null) {
-            System.out.println("Factura encontrada: Serial " + ventaEncontrada.getNumFactura().serial + " | Valor: " + ventaEncontrada.getValor());
+            System.out.println("Factura encontrada: Serial " + ventaEncontrada.getNumFactura().getSerial() + " | Valor: " + ventaEncontrada.getValor());
         } else {
             System.out.println("Factura no encontrada.");
         }
@@ -63,8 +63,8 @@ public class Main {
         Venta[] limites = Busqueda.buscarValorPrimeraUltima(ventasGlobales, valorBuscado);
         if (limites[0] != null && limites[1] != null) {
             System.out.println("Valor buscado: " + valorBuscado);
-            System.out.println("Primera venta encontrada - Serial: " + limites[0].getNumFactura().serial);
-            System.out.println("Última venta encontrada  - Serial: " + limites[1].getNumFactura().serial);
+            System.out.println("Primera venta encontrada - Serial: " + limites[0].getNumFactura().getSerial());
+            System.out.println("Última venta encontrada  - Serial: " + limites[1].getNumFactura().getSerial());
         } else {
             System.out.println("No se encontraron ventas con ese valor.");
         }
