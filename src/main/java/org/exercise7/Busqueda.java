@@ -16,7 +16,7 @@ public class Busqueda {
         }
     }
 
-    public static Venta buscarBinaria(ArrayList<Venta> ventas, long serial) {
+    public static Venta buscarVenta(ArrayList<Venta> ventas, long serial) {
         ordenarPorNumFactura(ventas);
         int inicio = 0;
         int fin = ventas.size() - 1;
@@ -38,4 +38,6 @@ public class Busqueda {
         }
         return null;
     }
+
+
 }
