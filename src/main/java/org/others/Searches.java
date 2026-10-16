@@ -97,6 +97,7 @@ public class Searches {
         }
         return -1;
     }
+
     public static int lastIndexOfSorted(int[] a, int target) {
         if (a == null) return -1;
         int ub = lowerBound(a, target + 1);
@@ -105,6 +106,7 @@ public class Searches {
         }
         return -1;
     }
+
     public static int linearSearch2D(int[][] m, int target) {
         if (m == null) return 0;
         int count = 0;
