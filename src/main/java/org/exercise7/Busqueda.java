@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Busqueda {
 
-    private void ordenarPorNumFactura(ArrayList<Venta> ventas) {
+    private static void ordenarPorNumFactura(ArrayList<Venta> ventas) {
         for (int i = 1; i < ventas.size(); i++) {
             Venta actual = ventas.get(i);
             int j = i - 1;
@@ -16,7 +16,7 @@ public class Busqueda {
         }
     }
 
-    public Venta buscarBinaria(ArrayList<Venta> ventas, long serial) {
+    public static Venta buscarBinaria(ArrayList<Venta> ventas, long serial) {
         ordenarPorNumFactura(ventas);
         int inicio = 0;
         int fin = ventas.size() - 1;
