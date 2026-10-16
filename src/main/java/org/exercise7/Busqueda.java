@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Busqueda {
 
     public Venta buscarBinaria(ArrayList<Venta> ventas, long serial) {
+
         int inicio = 0;
         int fin = ventas.size() - 1;
 
