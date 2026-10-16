@@ -9,7 +9,7 @@ public class ClienteId {
         this.id = id;
     }
 
-    private static final AtomicLong inicio = new AtomicLong(1000);
+    private static final AtomicLong inicio = new AtomicLong(1);
 
     private static long incrementarId(){
         return  inicio.incrementAndGet();

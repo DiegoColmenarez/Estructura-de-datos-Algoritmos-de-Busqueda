@@ -13,4 +13,16 @@ public class Cliente {
         this.ventas = ventas;
         this.id = ClienteId.crear();
     }
+
+    public ClienteId getId() {
+        return id;
+    }
+
+    public ArrayList<Venta> getVentas() {
+        return ventas;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
 }
