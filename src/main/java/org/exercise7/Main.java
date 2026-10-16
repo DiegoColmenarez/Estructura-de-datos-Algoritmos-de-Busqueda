@@ -6,37 +6,39 @@ import java.util.ArrayList;
 public class Main {
     private static void imprimirVentas(ArrayList<Venta> ventas) {
         for (Venta v : ventas) {
-            System.out.println("Serial: " + v.getNumFactura().serial + " | Valor: " + v.getValor() + " | Fecha: " + v.getFecha());
+            System.out.println("Serial: " + v.getNumFactura().getSerial() + " | Valor: " + v.getValor() + " | Fecha: " + v.getFecha());
         }
     }
      static void main(String[] args) {
 
-        ArrayList<Venta> ventasGlobales = new ArrayList<>();
-
-        Venta v1 = new Venta(new BigDecimal("150.00"));
-        Venta v2 = new Venta(new BigDecimal("300.50"));
-        Venta v3 = new Venta(new BigDecimal("150.00"));
-        Venta v4 = new Venta(new BigDecimal("80.00"));
-
-        ventasGlobales.add(v3);
-        ventasGlobales.add(v1);
-        ventasGlobales.add(v4);
-        ventasGlobales.add(v2);
 
         ArrayList<Venta> ventasClienteA = new ArrayList<>();
-        ventasClienteA.add(v1);
-        ventasClienteA.add(v2);
         Cliente clienteA = new Cliente("Alejandro", ventasClienteA);
+        Cliente clienteB = new Cliente("Carlos", ventasClienteA);
+        var venta1 = new  Venta(new BigDecimal(10_000));
+        var venta2 = new  Venta(new BigDecimal(100_000));
+        var venta3 = new  Venta(new BigDecimal(102_000));
+        var venta4 = new  Venta(new BigDecimal(110_000));
+        var venta5 = new  Venta(new BigDecimal(40_000));
+        var venta6 = new  Venta(new BigDecimal(40_000));
+
+        clienteA.agregarVenta(venta1);
+        clienteB.agregarVenta(venta3);
+        clienteA.agregarVenta(venta5);
+        clienteB.agregarVenta(venta2);
+        clienteA.agregarVenta(venta6);
+        clienteB.agregarVenta(venta4);
 
         ArrayList<Cliente> clientesGlobales = new ArrayList<>();
         clientesGlobales.add(clienteA);
+        clientesGlobales.add(clienteB);
 
         System.out.println("--- Ordenamiento por número de factura ---");
-        System.out.println("Antes de ordenar:");
-        imprimirVentas(ventasGlobales);
-        Busqueda.ordenarPorNumFactura(ventasGlobales);
+        System.out.println("Antes de ordenar las ventas del clienteB:");
+        imprimirVentas(clienteB.getVentas());
+        Busqueda.ordenarPorNumFactura(clienteB.getVentas());
         System.out.println("Después de ordenar:");
-        imprimirVentas(ventasGlobales);
+        imprimirVentas(clienteB.getVentas());
 
         System.out.println("\n---  Búsqueda de una factura específica ---");
         long serialABuscar = v1.getNumFactura().getSerial();
@@ -48,7 +50,7 @@ public class Main {
         }
 
         System.out.println("\n--- Búsqueda de todas las ventas de un cliente ---");
-        long idCliente = clienteA.getId().id;
+        long idCliente = clienteA.getId().getId();
         ArrayList<Venta> ventasDelCliente = Busqueda.buscarVentasCliente(clientesGlobales, idCliente);
 
         if (ventasDelCliente != null) {

@@ -3,7 +3,7 @@ package org.exercise7;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class ClienteId {
-    long id;
+   private final long id;
 
     private ClienteId(Long id){
         this.id = id;
@@ -17,5 +17,9 @@ public class ClienteId {
 
     public static ClienteId crear(){
         return new ClienteId(incrementarId());
+    }
+
+    public long getId() {
+        return id;
     }
 }
