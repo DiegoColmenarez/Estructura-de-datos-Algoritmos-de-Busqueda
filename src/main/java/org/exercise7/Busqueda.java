@@ -18,7 +18,6 @@ public class Busqueda {
     }
 
     public static Venta buscarVenta(ArrayList<Venta> ventas, long serial) {
-        ordenarPorNumFactura(ventas);
         int inicio = 0;
         int fin = ventas.size() - 1;
         while (inicio <= fin) {
