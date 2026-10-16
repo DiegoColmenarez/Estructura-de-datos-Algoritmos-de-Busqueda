@@ -195,7 +195,7 @@ public class Searches {
         };
     }
 
-    public static int binarySearchIter(int[] a, int target) {
+    public static int binarySearch(int[] a, int target) {
         if (a == null || a.length == 0) return -1;
         int lo = 0, hi = a.length - 1;
         while (lo <= hi) {
