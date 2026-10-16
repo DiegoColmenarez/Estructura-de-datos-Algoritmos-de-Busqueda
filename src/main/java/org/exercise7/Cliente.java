@@ -25,4 +25,8 @@ public class Cliente {
     public String getNombre() {
         return nombre;
     }
+
+    public void agregarVenta(Venta venta){
+        ventas.add(venta);
+    }
 }
