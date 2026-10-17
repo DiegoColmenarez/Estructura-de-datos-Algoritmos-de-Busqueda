@@ -30,6 +30,15 @@ public class Busqueda {
         return null;
     }
 
+    public static Venta buscarVentaLineal(ArrayList<Venta> ventas, long serial) {
+        for (Venta venta : ventas) {
+            if (venta.getNumFactura().getSerial() == serial) {
+                return venta;
+            }
+        }
+        return null;
+    }
+
     public static ArrayList<Venta> buscarVentasCliente(ArrayList<Cliente> clientes, long idCliente) {
         for (Cliente cliente : clientes) {
             if (cliente.getClienteId().getId() == idCliente) {
